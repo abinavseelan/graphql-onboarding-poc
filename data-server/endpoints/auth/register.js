@@ -12,10 +12,14 @@ module.exports = (req, res, next) => {
   const existingUser = data.users.find((u) => u.username === username);
 
   if (existingUser) {
-    return res.status(403).message({
+    return res.status(403).json({
       message: 'User already exists',
     });
   }
+
+  data.users.push({
+    username,
+  });
 
   res.sendStatus(201);
 };

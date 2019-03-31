@@ -9,7 +9,7 @@ const port = 4000;
 const app = express();
 
 app.use(bodyParser.json());
-app.use(morgan());
+app.use(morgan('short'));
 
 app.use('/auth', auth);
 app.use('/channels', channels);

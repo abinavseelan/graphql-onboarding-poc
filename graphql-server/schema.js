@@ -6,7 +6,8 @@ const typeDefs = gql`
   }
 
   type Mutation {
-    login(email: String, password: String): LoginResponse
+    login(username: String, password: String): LoginResponse
+    register(username: String, password: String): Boolean
   }
 
   type Channel {
