@@ -5,3 +5,12 @@ export const IS_LOGGED_IN = gql`
     isAuthenticated @client
   }
 `;
+
+export const GET_CHANNELS = gql`
+  query getChannelsForUser {
+    channels {
+      id
+      name
+    }
+  }
+`;

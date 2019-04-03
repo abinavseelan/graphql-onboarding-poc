@@ -4,28 +4,20 @@ import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-d
 
 import Login from './pages/Login';
 import Register from './pages/Register';
-import OrgCreator from './pages/OrgCreator';
-import OrgSelector from './pages/OrgSelector';
+import ChannelSelector from './pages/ChannelSelector';
 
 import { IS_LOGGED_IN } from './queries';
 
 const App = () => {
 
   const renderRoutes = () => {
-    console.log('here');
-
     return (
       <Router>
         <Switch>
           <Route
             exact
-            path='/create'
-            component={OrgCreator}
-          />
-          <Route
-            exact
             path='/'
-            component={OrgSelector}
+            component={ChannelSelector}
           />
         </Switch>
       </Router>

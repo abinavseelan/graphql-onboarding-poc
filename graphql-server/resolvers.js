@@ -16,8 +16,8 @@ const createToken = (data) => {
 
 module.exports = {
   Query: {
-    channels: async (_, { owner }, { dataSources }) => {
-      return dataSources.channelsAPI.getChannels({ owner });
+    channels: async (_, { owner }, { dataSources, user }) => {
+      return dataSources.channelsAPI.getChannels({ owner: user.username });
     }
   },
   Mutation: {
@@ -33,7 +33,10 @@ module.exports = {
         password,
       });
 
-      const token = await createToken(response.sessionID);
+      const token = await createToken({
+        sessionID: response.sessionID,
+        username,
+      });
 
       res.cookie('TOKEN', token);
 
