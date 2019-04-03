@@ -1,5 +1,5 @@
 import React from 'react';
-import { withApollo, Query } from 'react-apollo';
+import { Query } from 'react-apollo';
 import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
 
 import Login from './pages/Login';

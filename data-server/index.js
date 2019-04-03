@@ -1,6 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const morgan = require('morgan');
+const cors = require('cors');
 
 const auth = require('./endpoints/auth');
 const channels = require('./endpoints/channels');
@@ -8,6 +9,7 @@ const channels = require('./endpoints/channels');
 const port = 4000;
 const app = express();
 
+app.use(cors());
 app.use(bodyParser.json());
 app.use(morgan('short'));
 

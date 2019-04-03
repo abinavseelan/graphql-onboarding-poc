@@ -1,5 +1,6 @@
 const { ApolloServer } = require('apollo-server-express');
 const express = require('express');
+const morgan = require('morgan');
 
 const typeDefs = require('./schema');
 const resolvers = require('./resolvers');
@@ -8,6 +9,8 @@ const ChannelsAPI = require('./datasources/channels');
 
 const port = 5000;
 const app = express();
+app.use(morgan('short'));
+
 const server = new ApolloServer({
   typeDefs,
   resolvers,
