@@ -1,10 +1,8 @@
 import React from 'react';
 import { Mutation } from 'react-apollo';
 import { Link } from 'react-router-dom';
-import cookies from 'browser-cookies';
 
 import { LOGIN_USER } from '../mutations';
-import { IS_LOGGED_IN } from '../queries';
 
 class Login extends React.Component {
   constructor(props) {
@@ -29,18 +27,7 @@ class Login extends React.Component {
         <Mutation
           mutation={LOGIN_USER}
           update={(cache, data) => {
-            if (data.token) {
-              cookies.set('TOKEN', data.token);
-            }
-
-            cache.writeQuery({
-              query: IS_LOGGED_IN,
-              data: {
-                isAuthenticated: data.isAuthenticated,
-              }
-            });
-
-            // window.location.href = '/';
+            window.location.href = '/'; // Doing a hard reload of the application to pick up the token
           }}
         >
           {
