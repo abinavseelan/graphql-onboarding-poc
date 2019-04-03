@@ -6,6 +6,7 @@
   "scripts": {
     "start:graphql-server": "nodemon graphql-server/index.js",
     "start:data-server": "nodemon data-server/index.js",
+    "start:client": "webpack-dev-server",
     "start": "concurrently 'npm run start:graphql-server' 'npm run start:data-server'"
   },
   "repository": {
@@ -19,15 +20,35 @@
   },
   "homepage": "https://github.com/abinavseelan/graphql-onboarding-poc#readme",
   "dependencies": {
+    "apollo-cache-inmemory": "^1.5.1",
+    "apollo-client": "^2.5.1",
     "apollo-datasource-rest": "^0.3.2",
+    "apollo-link-http": "^1.5.14",
     "apollo-server-express": "^2.4.8",
     "body-parser": "^1.18.3",
+    "browser-cookies": "^1.2.0",
     "concurrently": "^4.1.0",
     "express": "^4.16.4",
     "graphql": "^14.2.1",
-    "morgan": "^1.9.1"
+    "graphql-tag": "^2.10.1",
+    "morgan": "^1.9.1",
+    "react": "^16.8.6",
+    "react-apollo": "^2.5.3",
+    "react-dom": "^16.8.6",
+    "react-router-dom": "^5.0.0",
+    "sleek-ui": "^3.0.110"
   },
   "devDependencies": {
-    "nodemon": "^1.18.10"
+    "@babel/core": "^7.4.3",
+    "@babel/plugin-proposal-class-properties": "^7.4.0",
+    "@babel/plugin-proposal-object-rest-spread": "^7.4.3",
+    "@babel/preset-env": "^7.4.3",
+    "@babel/preset-react": "^7.0.0",
+    "babel-loader": "^8.0.5",
+    "html-webpack-plugin": "^3.2.0",
+    "nodemon": "^1.18.10",
+    "webpack": "^4.29.6",
+    "webpack-cli": "^3.3.0",
+    "webpack-dev-server": "^3.2.1"
   }
 }
