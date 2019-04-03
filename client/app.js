@@ -12,6 +12,8 @@ import { IS_LOGGED_IN } from './queries';
 const App = () => {
 
   const renderRoutes = () => {
+    console.log('here');
+
     return (
       <Router>
         <Switch>

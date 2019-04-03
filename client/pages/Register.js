@@ -1,5 +1,6 @@
 import React from 'react';
 import { Mutation } from 'react-apollo';
+import { Link } from 'react-router-dom';
 
 import { REGISTER_USER } from '../mutations';
 
@@ -8,7 +9,7 @@ class Register extends React.Component {
     super(props);
 
     this.state = {
-      email: '',
+      username: '',
       password: '',
     }
   }
@@ -30,16 +31,16 @@ class Register extends React.Component {
                 e.preventDefault();
                 registerUser({
                   variables: {
-                    username: this.state.email,
+                    username: this.state.username,
                     password: this.state.password,
                   }
                 })
               }}
             >
               <input
-                name='email'
-                type='email'
-                placeholder='Email'
+                name='username'
+                type='text'
+                placeholder='Username'
                 value={this.state.email}
                 onChange={this.handleInput}
               />
@@ -50,9 +51,9 @@ class Register extends React.Component {
                 value={this.state.password}
                 onChange={this.handleInput}
               />
-              <input type='submit' value='Register' />
-              {loading && <p>Registering...</p>}
+              <input type='submit' value='Register' disabled={loading} />
               {error && <pre>{JSON.stringify(error, null, 2)}</pre>}
+              {data && <p>Registered successfully! Please <Link to='/login'>Login</Link></p>}
             </form>
           )
         }

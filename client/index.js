@@ -11,7 +11,8 @@ import App from './app';
 const cache = new InMemoryCache();
 
 const link = new HttpLink({
-  uri: 'http://localhost:5000/graphql'
+  uri: 'http://localhost:5000/graphql',
+  credentials: 'include',
 });
 
 cache.writeData({
@@ -22,7 +23,7 @@ cache.writeData({
 
 const client = new ApolloClient({
   cache,
-  link
+  link,
 });
 
 render(

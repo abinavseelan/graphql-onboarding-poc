@@ -17,7 +17,7 @@ const typeDefs = gql`
   }
 
   type LoginResponse {
-    sessionID: String
+    isAuthenticated: Boolean
   }
 `;
 
